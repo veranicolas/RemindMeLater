@@ -1,0 +1,5 @@
+-TODO - Add reminders title, description, and date on display
+-TODO - Add state management https://github.com/pmndrs/zustand and persistent storage https://github.com/react-native-async-storage/async-storage
+-TODO - Add date picker https://github.com/henninghall/react-native-date-picker
+-TODO - Add animations for expanding cards
+-TODO - Add local notifications
