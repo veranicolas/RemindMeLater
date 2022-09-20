@@ -1,7 +1,7 @@
 
 # RemindMeLater
 
-## This is a React Native for creating reminders and such.
+## This is a React Native App for creating reminders and such.
 
 ### Description
 
