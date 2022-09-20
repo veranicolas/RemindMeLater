@@ -1,10 +1,13 @@
 import React, {type PropsWithChildren} from 'react';
-import { Main } from './src/Main';
+import { NavigationContainer } from '@react-navigation/native';
+import { MainNavigation } from './src/routes/Navigator';
 
 const App = () =>{
 
   return (
-    <Main />
+    <NavigationContainer>
+      <MainNavigation />
+    </NavigationContainer>
   );
 };
 

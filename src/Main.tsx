@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
 import { View, SafeAreaView, Text, StyleSheet, StatusBar, Pressable } from 'react-native'
+import { CustomIconButton } from './components/CustomButton';
 import { RemindersList } from './List';
 import { AddReminderModal } from './Modal';
-import Icon from 'react-native-vector-icons/MaterialIcons'
 
-const IconAdd = (props:any) =>{
-    return(
-        <Pressable style={{alignSelf:'flex-end', paddingVertical:15}} android_ripple={{color:'black',radius:23, foreground:false}} onPress={props.onPressAddButton} >
-            <Icon style={[styles.shadows,{borderRadius:55}]} color={'white'} name='add-circle' size={55} />
-        </Pressable>
-    )
-}
 
 const Main = () =>{
 
@@ -27,7 +20,7 @@ const Main = () =>{
             <View style={styles.mainContainer}>
                 <Text style={styles.title}>Reminders</Text>
                 <RemindersList reminders={DATA}/>
-                <IconAdd onPressAddButton={onPressAddButton}/>
+                <CustomIconButton name="add-circle" onPressAddButton={onPressAddButton}/>
                 
                 <AddReminderModal visible={visible} setVisible={setVisible}/>
                 <StatusBar translucent/>
@@ -55,17 +48,6 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         paddingLeft:8
     },
-    shadows:{
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 3,
-        },
-        shadowOpacity: 0.27,
-        shadowRadius: 4.65,
-
-        elevation: 14,
-    }
 });
 
 export { Main }
