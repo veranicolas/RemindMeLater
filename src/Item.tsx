@@ -1,18 +1,22 @@
 import React from "react";
 import { Text, StyleSheet, Pressable } from 'react-native'
+import { useAtom } from "jotai";
+import { deleteMode } from "./jotai/atoms";
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 const Item = (item:any) =>{
+
+    const [deleteModeActive, setDeleteMode] = useAtom(deleteMode)
 
     const onPressRemoveItem = () =>{
         console.log('item removed')
     }
 
     return(
-        <Pressable onLongPress={()=>{item.setDeleteMode(true)}} style={styles.item}>
+        <Pressable onLongPress={()=>{setDeleteMode(true)}} style={styles.item}>
             <Text style={styles.itemText}>{item.item.title}</Text>
             {
-                item.deleteMode && 
+                deleteModeActive && 
                (<Pressable style={styles.removeButton} onPress={onPressRemoveItem} android_ripple={{color:'white'}}>
                 <Icon style={styles.removeIcon} name="remove" size={24} color="white"/>
                 </Pressable>)

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, SafeAreaView, Text, StyleSheet, StatusBar, Pressable } from 'react-native'
 import { CustomIconButton } from './components/CustomButton';
-import { taskAtoms } from './jotai/atoms';
+import { taskAtoms, deleteMode } from './jotai/atoms';
 import { useAtom } from 'jotai';
 import { RemindersList } from './List';
 import { AddReminderModal } from './Modal';
@@ -10,9 +10,7 @@ import { AddReminderModal } from './Modal';
 const Main = () =>{
 
     const [visible, setVisible] = useState(false)
-    const [deleteMode, setDeleteMode] = useState(false)
-
-    const [tasks] = useAtom(taskAtoms)
+    const [deleteModeActive, setDeleteMode] = useAtom(deleteMode)
 
     const onPressAddButton = () =>{
         setVisible(true)
@@ -24,14 +22,14 @@ const Main = () =>{
                 <View style={styles.title}>
                     <Text style={styles.titleText}>Reminders</Text>
                     {
-                        deleteMode &&
+                        deleteModeActive &&
                         (<Pressable style={styles.cancelButton} onPress={()=>{setDeleteMode(false)}}>
                             <Text style={styles.cancelButtonText}>Cancel</Text>
                         </Pressable>)
                     }
                 </View>
-                <RemindersList deleteMode={deleteMode} setDeleteMode={setDeleteMode}/>
-                <CustomIconButton name="add-circle" onPressAddButton={onPressAddButton}/>
+                <RemindersList />
+                <CustomIconButton disabled={deleteModeActive} name="add-circle" onPressAddButton={onPressAddButton}/>
                 
                 <AddReminderModal visible={visible} setVisible={setVisible}/>
                 <StatusBar translucent/>

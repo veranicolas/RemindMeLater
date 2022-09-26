@@ -14,7 +14,7 @@ export const RemindersList = (props:any) =>{
             data={tasks}
             renderItem={(item)=>{
                 return <>
-                    <Item deleteMode={props.deleteMode} setDeleteMode={props.setDeleteMode} item={item.item}/>
+                    <Item item={item.item}/>
                 </>
             }}
             keyExtractor={(item, index)=> { return (Math.random()).toString()}}
