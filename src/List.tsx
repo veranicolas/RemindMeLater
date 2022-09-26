@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FlatList, StyleSheet } from "react-native";
 import { Item } from "./Item";
 
@@ -10,7 +10,7 @@ export const RemindersList = (props:any) =>{
             data={props.reminders}
             renderItem={(item)=>{
                 return <>
-                    <Item item={item.item}/>
+                    <Item deleteMode={props.deleteMode} setDeleteMode={props.setDeleteMode} item={item.item}/>
                 </>
             }}
             keyExtractor={(item, index)=> { return (Math.random()).toString()}}

@@ -9,13 +9,16 @@ const Item = (item:any) =>{
     }
 
     return(
-        <View style={styles.item}>
+        <Pressable onLongPress={()=>{item.setDeleteMode(true)}} style={styles.item}>
             <Text style={styles.itemText}>{item.item}</Text>
-            <Pressable style={styles.removeButton} onPress={onPressRemoveItem} android_ripple={{color:'white'}}>
+            {
+                item.deleteMode && 
+               (<Pressable style={styles.removeButton} onPress={onPressRemoveItem} android_ripple={{color:'white'}}>
                 <Icon style={styles.removeIcon} name="remove" size={24} color="white"/>
-            </Pressable>
+                </Pressable>)
+            }
             
-        </View>
+        </Pressable>
     )
 }
 
@@ -53,7 +56,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
         textAlignVertical:'center', 
         padding:20, 
-        backgroundColor:'red', 
+        backgroundColor:'black', 
         borderTopRightRadius:12, 
         borderBottomRightRadius:12
     },
