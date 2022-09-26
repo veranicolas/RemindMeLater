@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Pressable } from 'react-native'
+import { Text, StyleSheet, Pressable } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 const Item = (item:any) =>{
@@ -10,7 +10,7 @@ const Item = (item:any) =>{
 
     return(
         <Pressable onLongPress={()=>{item.setDeleteMode(true)}} style={styles.item}>
-            <Text style={styles.itemText}>{item.item}</Text>
+            <Text style={styles.itemText}>{item.item.title}</Text>
             {
                 item.deleteMode && 
                (<Pressable style={styles.removeButton} onPress={onPressRemoveItem} android_ripple={{color:'white'}}>

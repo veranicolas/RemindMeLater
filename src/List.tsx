@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { FlatList, StyleSheet } from "react-native";
 import { Item } from "./Item";
+import { taskAtoms } from "./jotai/atoms";
+import { useAtom } from "jotai";
 
 export const RemindersList = (props:any) =>{
+
+    const [tasks] = useAtom(taskAtoms)
 
     return (
         <FlatList 
             style={styles.itemList}
-            data={props.reminders}
+            data={tasks}
             renderItem={(item)=>{
                 return <>
                     <Item deleteMode={props.deleteMode} setDeleteMode={props.setDeleteMode} item={item.item}/>
