@@ -5,7 +5,7 @@
 
 ### Description
 
-The purpose of this project is to learn and try new stuff honestly, so dependencies may change at random and some things may not make sense. Mainly, I'am gonna try to learn how to make some cool and smooth animations😜😎.
+The purpose of this project is to learn and try new stuff honestly, so dependencies may change at random and some things may not make sense. Mainly, I'm gonna try to learn how to make some cool and smooth animations😜😎.
 
 ### Overview
 
