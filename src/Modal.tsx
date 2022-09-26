@@ -1,20 +1,13 @@
 import React from "react";
-import { Modal, Text, View, Button, TextInput, StyleSheet, Pressable} from "react-native";
+import { Modal, Text, View, TextInput, StyleSheet, Pressable} from "react-native";
+import { useForm, Controller } from "react-hook-form";
 import { useAtom } from 'jotai'
 import { taskAtoms } from './jotai/atoms'
-import { useForm, Controller } from "react-hook-form";
 
-type TaskAtom = {
-    id:string,
-    title:string,
-    body:string,
-    color:string,
-}
 
 export const AddReminderModal = (props:any) =>{
 
     const [tasks, setTasks] = useAtom(taskAtoms)
-
     const {control, handleSubmit, formState:{errors}, reset} = useForm()
 
     const onPressAddTask = (data:any) =>{

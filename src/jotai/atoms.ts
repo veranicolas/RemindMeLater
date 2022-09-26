@@ -1,4 +1,4 @@
-import { atom, PrimitiveAtom } from "jotai";
+import { atom } from "jotai";
 
 type TaskAtom = {
     id:number,
