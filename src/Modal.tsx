@@ -41,6 +41,7 @@ export const AddReminderModal = (props:any) =>{
                                     value={value}
                                     onBlur={onBlur}
                                     onChangeText={(value:string)=> onChange(value)}
+                                    placeholderTextColor="#b5b5b5"
                                 />
                                 {errors.title && <Text style={{color:'red'}}>Must enter a title</Text>}
                             </View>)}
@@ -60,6 +61,7 @@ export const AddReminderModal = (props:any) =>{
                                     value={value}
                                     onBlur={onBlur}
                                     onChangeText={(value:string)=> onChange(value)}
+                                    placeholderTextColor="#b5b5b5"
                                 />
                                 {errors.body && <Text style={{color:'red'}}>Must enter a description</Text>}
                             </View>)}
@@ -89,7 +91,9 @@ const styles = StyleSheet.create({
         borderColor:'grey', 
         paddingHorizontal:10, 
         paddingBottom:8, 
-        borderRadius:8
+        borderRadius:8,
+        fontWeight:"500",
+        color:'black'
     },
     inputsError:{
         borderWidth:1, 

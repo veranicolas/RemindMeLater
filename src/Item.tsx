@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
         paddingLeft:15,
         fontSize:16,
         fontWeight:"500",
+        color:'black'
     },
     removeButton:{
         flexDirection:'row',
