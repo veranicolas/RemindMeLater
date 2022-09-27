@@ -15,7 +15,7 @@ export const CustomButton = ({onPress, title}:any) =>{
 
 export const CustomIconButton = (props:any) =>{
     return(
-        <Pressable disabled={props.disabled} style={{alignSelf:'flex-end', paddingVertical:15}} android_ripple={{color:'cyan',radius:24, foreground:false}} onPress={props.onPressAddButton} >
+        <Pressable disabled={props.disabled} style={{alignSelf:'flex-end', paddingVertical:15}} android_ripple={{color:'black',radius:24, foreground:false}} onPress={props.onPressAddButton} >
             <Icon style={[styles.shadows,{borderRadius:55}]} color={props.disabled ? 'grey' : 'black'} name={props.name} size={55} />
         </Pressable>
     )

@@ -14,7 +14,7 @@ export const AddReminderModal = (props:any) =>{
         const task = {
             ...data,
             id:(Math.random()*1000).toString(),
-            color:'white'
+            color:'white',
         }
         setTasks(()=> [...tasks, task])
         props.setVisible(false)

@@ -1,6 +1,7 @@
 import React from "react"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { Main } from "../Main"
+import { TaskPage } from "../pages/TaskPage"
 
 export const MainNavigation = () =>{
 
@@ -13,6 +14,13 @@ export const MainNavigation = () =>{
                 component={Main}
                 options={{
                     headerShown:false
+                }}
+            />
+            <Stack.Screen
+                name="Task"
+                component={TaskPage}
+                options={{
+                    headerTitle:''
                 }}
             />
         </Stack.Navigator>

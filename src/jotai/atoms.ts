@@ -4,7 +4,7 @@ type TaskAtom = {
     id:number,
     title:string,
     body:string,
-    color:string,
+    color:string
 }
 
 type Theme = 'light' | 'dark'
