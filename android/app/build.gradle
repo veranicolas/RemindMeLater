@@ -209,6 +209,9 @@ android {
         }
     }
 
+    def jsonFile = file('data.json')
+    def parsedJson = new groovy.json.JsonSlurper().parseText(jsonFile.text)
+
     splits {
         abi {
             reset()
@@ -226,9 +229,9 @@ android {
         }
         release {
             storeFile file('remindmelater.keystore')
-            storePassword 'pastafrola123'
-            keyAlias 'RemindMeLater'
-            keyPassword 'pastafrola123'
+            storePassword parsedJson.storePassword
+            keyAlias parsedJson.keyAlias
+            keyPassword parsedJson.keyPassword
         }
     }
     buildTypes {
