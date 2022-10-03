@@ -1,7 +1,7 @@
 import React from "react";
 import { FlatList, StyleSheet } from "react-native";
 import { Item } from "./Item";
-import { taskAtoms } from "./jotai/atoms";
+import { taskAtoms } from "../../jotai/atoms";
 import { useAtom } from "jotai";
 
 export const RemindersList = () =>{

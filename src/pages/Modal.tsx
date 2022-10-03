@@ -2,7 +2,7 @@ import React from "react";
 import { Modal, Text, View, TextInput, StyleSheet, Pressable} from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { useAtom } from 'jotai'
-import { taskAtoms } from './jotai/atoms'
+import { taskAtoms } from '../jotai/atoms'
 
 
 export const AddReminderModal = (props:any) =>{

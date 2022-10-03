@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { View, SafeAreaView, Text, StyleSheet, StatusBar, Pressable } from 'react-native'
-import { CustomIconButton } from './components/CustomButton';
-import { taskAtoms, deleteMode } from './jotai/atoms';
+import { CustomIconButton } from '../../components/CustomButton';
+import { deleteMode } from '../../jotai/atoms';
 import { useAtom } from 'jotai';
 import { RemindersList } from './List';
-import { AddReminderModal } from './Modal';
+import { AddReminderModal } from '../Modal';
 
-
-const Main = () =>{
+const Homepage = () =>{
 
     const [visible, setVisible] = useState(false)
     const [deleteModeActive, setDeleteMode] = useAtom(deleteMode)
@@ -86,4 +85,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export { Main }
+export { Homepage }

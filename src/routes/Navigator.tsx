@@ -1,6 +1,6 @@
 import React from "react"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { Main } from "../Main"
+import { Homepage } from "../pages/Homepage/Homepage"
 import { TaskPage } from "../pages/TaskPage"
 
 export const MainNavigation = () =>{
@@ -11,7 +11,7 @@ export const MainNavigation = () =>{
         <Stack.Navigator initialRouteName="Feed">
             <Stack.Screen
                 name="Feed"
-                component={Main}
+                component={Homepage}
                 options={{
                     headerShown:false
                 }}

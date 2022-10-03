@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, StyleSheet, Pressable } from 'react-native'
 import { useAtom } from "jotai";
-import { deleteMode, taskAtoms } from "./jotai/atoms";
+import { deleteMode, taskAtoms } from "../../jotai/atoms";
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 const Item = (item:any) =>{
@@ -11,7 +11,7 @@ const Item = (item:any) =>{
 
     const onPressRemoveItem = () =>{
         setTasks(()=>{
-            return tasks.filter((task)=>{
+            return tasks.filter((task:any)=>{
                 return task.id !== item.item.id 
             })
         })
