@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, Pressable } from 'react-native'
+import { Text, StyleSheet, Pressable, View } from 'react-native'
 import { useAtom } from "jotai";
 import { deleteMode, taskAtoms } from "../../jotai/atoms";
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -18,9 +18,11 @@ const Item = (item:any) =>{
     }
 
     return(
-        <Pressable onLongPress={()=>{setDeleteMode(true)}} style={[styles.item, {backgroundColor:item.item.color}]}>
-            <Text style={styles.itemText}>{item.item.title}</Text>
-            <Text numberOfLines={1} style={styles.itemBody}>{item.item.body}</Text>
+        <Pressable onLongPress={()=>{setDeleteMode(true)}} style={[styles.item, styles.shadows, {backgroundColor:item.item.color}]}>
+            <View style={[styles.item, {flexDirection:'column', width:'70%', justifyContent:'center'}]}>
+                <Text style={[styles.itemText, {color:item.item.color === 'white' ? 'black' : 'white'}]}>{item.item.title}</Text>
+                <Text numberOfLines={1} style={[styles.itemBody, {color:item.item.color === 'white' ? 'black' : '#e8e8e8'}]}>{item.item.body}</Text>
+            </View>
             {
                 deleteModeActive && 
                (<Pressable style={styles.removeButton} onPress={onPressRemoveItem} android_ripple={{color:'white'}}>
@@ -33,23 +35,13 @@ const Item = (item:any) =>{
 
 const styles = StyleSheet.create({
     item:{
-        flexDirection:'column',
-        justifyContent:'center',
+        flexDirection:'row',
+        justifyContent:'space-between',
         width:'95%', 
         height:80,
         alignSelf:'center',
         marginVertical:12,
         borderRadius:12,
-        
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 7,
-        },
-        shadowOpacity: 0.41,
-        shadowRadius: 9.11,
-
-        elevation: 8,
     },
     itemText:{
         textAlignVertical:'center', 
@@ -60,7 +52,7 @@ const styles = StyleSheet.create({
         color:'black'
     },
     itemBody:{
-        width:'90%',
+        width:'80%',
         textAlignVertical:'center', 
         height:30, 
         paddingLeft:15,
@@ -80,6 +72,17 @@ const styles = StyleSheet.create({
     },
     removeIcon:{
         textAlignVertical:'center'
+    },
+    shadows:{
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 7,
+        },
+        shadowOpacity: 0.41,
+        shadowRadius: 9.11,
+
+        elevation: 8,
     }
 })
 
