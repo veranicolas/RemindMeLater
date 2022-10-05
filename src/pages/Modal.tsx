@@ -3,7 +3,7 @@ import { Modal, Text, View, TextInput, StyleSheet, Pressable} from "react-native
 import { useForm, Controller } from "react-hook-form";
 import { useAtom } from 'jotai'
 import { taskAtoms } from '../jotai/atoms'
-
+import { MaterialDatetimePickerAndroid } from "react-native-material-datetime-picker";
 
 export const AddReminderModal = (props:any) =>{
 
@@ -29,7 +29,7 @@ export const AddReminderModal = (props:any) =>{
     return(
         <Modal presentationStyle="fullScreen" animationType="slide" visible={props.visible}>
             <View style={styles.form}>
-                <View style={{height:'40%', justifyContent:'space-evenly'}}>
+                <View style={{height:'50%', justifyContent:'space-evenly'}}>
                     <Controller
                         control={control}
                         name="title"
@@ -60,6 +60,7 @@ export const AddReminderModal = (props:any) =>{
                                     placeholder="Description"
                                     value={value}
                                     onBlur={onBlur}
+                                    numberOfLines={4}
                                     onChangeText={(value:string)=> onChange(value)}
                                     placeholderTextColor="#b5b5b5"
                                 />
@@ -71,11 +72,11 @@ export const AddReminderModal = (props:any) =>{
                     />
                     
                     <View style={{flexDirection:'row', justifyContent:'space-between', width:'100%'}}>
-                        <Pressable style={[styles.buttons, styles.shadows]} onPress={onPressCancel}>
-                            <Text style={[styles.buttonText,{color:'red'}]}>CANCEL</Text>
+                        <Pressable style={{width:'45%'}} android_ripple={{color:'white'}} onPress={onPressCancel}>
+                            <Text style={[styles.buttonText, styles.shadows,{backgroundColor:'red'}]}>CANCEL</Text>
                         </Pressable>
-                        <Pressable style={[styles.buttons, styles.shadows]} onPress={handleSubmit(onPressAddTask)}>
-                            <Text style={[styles.buttonText,{color:'green'}]}>ADD</Text>
+                        <Pressable style={{width:'45%'}} android_ripple={{color:'white'}} onPress={handleSubmit(onPressAddTask)}>
+                            <Text style={[styles.buttonText, styles.shadows,{backgroundColor:'green'}]}>ADD</Text>
                         </Pressable>
                     </View>
                     
@@ -109,19 +110,13 @@ const styles = StyleSheet.create({
         justifyContent:'center', 
         padding:25
     },
-    buttons:{
-        width:'45%', 
-        height: 50,
-        backgroundColor:'white',
-        borderWidth:1,
-        
-        borderRadius:10
-    },
     buttonText:{
         textAlign:'center', 
         textAlignVertical:'center', 
         height:50,
-        fontWeight:'bold'
+        fontWeight:'bold',
+        color:'white',
+        borderRadius:10,
     },
     shadows:{
         shadowColor: "#000",

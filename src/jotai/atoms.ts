@@ -32,6 +32,6 @@ const atomWithAsyncStorage = (key:string, initialValue:any) => {
 
 const taskAtoms = atomWithAsyncStorage('tasks',[])
 const theme = atomWithAsyncStorage('theme','light')
-const deleteMode = atomWithAsyncStorage('deleteMode',false)
+const deleteMode = atom(false)
 
 export { taskAtoms, theme, deleteMode }

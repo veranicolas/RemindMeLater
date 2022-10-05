@@ -5,12 +5,15 @@ import { deleteMode } from '../../jotai/atoms';
 import { useAtom } from 'jotai';
 import { RemindersList } from './List';
 import { AddReminderModal } from '../Modal';
+import { NativeStackScreenProps } from '@react-navigation/native-stack/lib/typescript/src/types';
 
-const Homepage = () =>{
+type HomeNavigation = NativeStackScreenProps<any,'Feed'>
+
+const Homepage = ({navigation}:HomeNavigation) =>{
 
     const [visible, setVisible] = useState(false)
     const [deleteModeActive, setDeleteMode] = useAtom(deleteMode)
-
+    
     const onPressAddButton = () =>{
         setVisible(true)
     }
