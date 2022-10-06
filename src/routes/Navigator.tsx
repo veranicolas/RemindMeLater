@@ -20,7 +20,7 @@ export const MainNavigation = () =>{
                 name="Task"
                 component={TaskPage}
                 options={{
-                    headerTitle:''
+                    headerShown:false
                 }}
             />
         </Stack.Navigator>

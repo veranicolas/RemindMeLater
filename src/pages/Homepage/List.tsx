@@ -4,7 +4,7 @@ import { Item } from "./Item";
 import { taskAtoms } from "../../jotai/atoms";
 import { useAtom } from "jotai";
 
-export const RemindersList = () =>{
+export const RemindersList = ({navigation}:any) =>{
 
     const [tasks] = useAtom(taskAtoms)
 
@@ -14,7 +14,7 @@ export const RemindersList = () =>{
             data={tasks}
             renderItem={(item)=>{
                 return <>
-                    <Item item={item.item}/>
+                    <Item navigation={navigation} item={item.item}/>
                 </>
             }}
             keyExtractor={(item, index)=> { return (Math.random()).toString()}}

@@ -30,7 +30,7 @@ const Homepage = ({navigation}:HomeNavigation) =>{
                         </Pressable>)
                     }
                 </View>
-                <RemindersList />
+                <RemindersList navigation={navigation}/>
                 <CustomIconButton disabled={deleteModeActive} name="add-circle" onPressAddButton={onPressAddButton}/>
                 
                 <AddReminderModal visible={visible} setVisible={setVisible}/>

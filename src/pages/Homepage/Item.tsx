@@ -17,8 +17,16 @@ const Item = (item:any) =>{
         })
     }
 
+    const onPressNavigate = () =>{
+        item.navigation.navigate('Task', {itemId:item.item.id})
+    }
+
     return(
-        <Pressable onLongPress={()=>{setDeleteMode(true)}} style={[styles.item, styles.shadows, {backgroundColor:item.item.color}]}>
+        <Pressable 
+            onPress={onPressNavigate} 
+            onLongPress={()=>{setDeleteMode(true)}} 
+            style={[styles.item, styles.shadows, {backgroundColor:item.item.color}]}
+        >
             <View style={[styles.item, {flexDirection:'column', width:'70%', justifyContent:'center'}]}>
                 <Text style={[styles.itemText, {color:item.item.color === 'white' ? 'black' : 'white'}]}>{item.item.title}</Text>
                 <Text numberOfLines={1} style={[styles.itemBody, {color:item.item.color === 'white' ? 'black' : '#e8e8e8'}]}>{item.item.body}</Text>
