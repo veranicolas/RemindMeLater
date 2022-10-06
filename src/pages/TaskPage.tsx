@@ -11,6 +11,8 @@ const STATUSBAR_HEIGHT = StatusBar.currentHeight
 
 const TaskPage = ({ route, navigation }:TaskNavigation) =>{
 
+    // TODO add edit mode
+
     const [tasks] = useAtom(taskAtoms)
     //@ts-ignore
     const { itemId } = route.params
@@ -44,7 +46,8 @@ const styles = StyleSheet.create({
     },
     body:{
         marginTop: 10,
-        fontSize:18
+        fontSize:18,
+        color:'#333333'
     }
 })
 
